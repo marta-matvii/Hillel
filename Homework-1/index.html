@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Data types</title>
+</head>
+<body>
+    <script>
+        let age;
+        age = 25;
+        console.log(typeof age); // "number"
+        
+        let name;
+        name = "John";
+        console.log(typeof name); // "string"
+        
+        let isStudent;
+        isStudent = true;
+        console.log(typeof isStudent); // "boolean"
+
+        let undefinedVar;
+        console.log(typeof undefinedVar); // "undefined"
+
+        let nullVar;
+        nullVar = null;
+        console.log(typeof nullVar); // "object" (null)
+
+        let person;
+        person = {name: "John", age: 30};
+        console.log(typeof person); // "object"
+  
+        let fruits;
+        fruits = ["apple", "banana", "orange"];
+        console.log(typeof fruits); // "object" (array)
+        
+        let id;
+        id = Symbol("id");
+        console.log(typeof id); // "symbol"
+        
+        let bigNumber;
+        bigNumber = 123456789012345678901234567890n;
+        console.log(typeof bigNumber); // "bigint"
+    </script>
+</body>
+</html>

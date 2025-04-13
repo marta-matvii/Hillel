@@ -12,6 +12,39 @@
     //=============================================
     const userName = prompt("Your name:", "Anonymous")
     alert(`Hello, ${userName}! How are you?`)
+
+    //=============================================
+    // HOMEWORK 4.2. Validate numbers
+    //=============================================
+    // Отримуємо введення від користувача
+    let userInput = prompt("Введіть тризначне число:", "");
+
+    // Перетворюємо введені дані на число
+    let num = parseInt(userInput);
+
+    // Перевіряємо, чи число тризначне
+    if (num < 100 || num > 999) {
+        alert("Будь ласка, введіть тризначне число (від 100 до 999).");
+    } else {
+        // Перетворюємо число назад у рядок і розбиваємо на окремі символи
+        let digits = num.toString().split('');
+        
+        // Перетворюємо символи назад у числа
+        let digit1 = parseInt(digits[0]);
+        let digit2 = parseInt(digits[1]);
+        let digit3 = parseInt(digits[2]);
+        
+        // Перевіряємо, чи всі цифри однакові
+        let allDigitsSame = (digit1 === digit2) && (digit2 === digit3);
+        
+        // Перевіряємо, чи є серед цифр однакові
+        let hasEqualDigits = (digit1 === digit2) || (digit1 === digit3) || (digit2 === digit3);
+        
+        // Виводимо результат
+        alert(`У числі ${num} (цифри: ${digit1}, ${digit2}, ${digit3}):
+    - ${allDigitsSame ? "Усі цифри однакові" : "Не всі цифри однакові"}
+    - ${hasEqualDigits ? "Є однакові цифри" : "Немає однакових цифр"}`);
+    }
    </script> 
 </body>
 </html>

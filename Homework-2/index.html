@@ -7,16 +7,16 @@
 </head>
 <body>
    <script>
-    //=============================================
-    // HOMEWORK 4.1. Work with prompt
-    //=============================================
+//=============================================
+// HOMEWORK 4.1. Work with prompt
+//=============================================
     const userName = prompt("Your name:", "Anonymous")
     alert(`Hello, ${userName}! How are you?`)
 
-    //=============================================
-    // HOMEWORK 4.2. Validate numbers
-    //=============================================
-    // Отримуємо введення від користувача
+//=============================================
+// HOMEWORK 4.2. Validate numbers
+//=============================================
+// Отримуємо введення від користувача
     let userInput = prompt("Введіть тризначне число:", "");
 
     // Перетворюємо введені дані на число
@@ -46,9 +46,50 @@
     - ${hasEqualDigits ? "Є однакові цифри" : "Немає однакових цифр"}`);
     }
 
-    //=============================================
-    // HOMEWORK 4.4. Switch case
-    //=============================================
+//=============================================
+// HOMEWORK 4.3. User portrait
+//=============================================
+let yearOfBirth = prompt("Введіть рік вашого народження", "1990");
+let cityOfResidence = prompt("В якому місті ви проживаєте?", "Житомир");
+let favoriteSport = prompt("Який ваш улюблений вид спорту?", "Теніс");
+let readyToProceed = confirm("Готові продовжити?");
+
+if (readyToProceed) {
+    let currentYear = 2025;
+    let age = currentYear - parseInt(yearOfBirth);
+    
+    let cityMessage = "";
+    if (cityOfResidence) {
+        let cityLower = cityOfResidence.toLowerCase();
+        
+        switch (cityLower) {
+            case "київ":
+                cityMessage = "Ви живете у столиці України";
+                break;
+                
+            case "вашингтон":
+                cityMessage = "Ви живете у столиці США";
+                break;
+                
+            case "лондон":
+                cityMessage = "Ви живете у столиці Великої Британії";
+                break;
+                
+            default:
+                cityMessage = `Ви живете у місті ${cityOfResidence}`;
+        } // Закриваюча дужка для switch
+    } else {
+        cityMessage = "Ви не вказали місто проживання";
+    }
+    
+    let finalMessage = `Ваш вік: ${age} років\n\n${cityMessage}\n\nВаш улюблений вид спорту: ${favoriteSport}`;
+    
+    alert(finalMessage);
+}
+
+//=============================================
+// HOMEWORK 4.4. Switch case
+//=============================================
     let numOrStr = prompt('input number or string');
     console.log(numOrStr);
 

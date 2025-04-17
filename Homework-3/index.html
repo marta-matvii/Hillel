@@ -18,6 +18,67 @@
         }
 
         console.log(result);
+
+        // ============================================
+        // Task 5.2.
+        // ============================================
+
+        const exchangeRate = 26; 
+        
+        for (let dollars = 10; dollars <= 100; dollars += 10) {
+            const hryvnias = dollars * exchangeRate;
+            console.log(`${dollars} USD = ${hryvnias} UAH`);
+        }
+
+        // ============================================
+        // Task 5.3.
+        // ============================================
+
+        const userInput = prompt("Введіть ціле число");
+        
+        const N = parseInt(userInput);
+        
+        console.log(`Числа від 1 до 100, квадрат яких не перевищує ${N}:`);
+        
+        let numbersResult = '';
+        
+        for (let i = 1; i <= 100; i++) {
+            if (i * i <= N) {
+                numbersResult += i + ' ';
+            }
+        }
+        
+        console.log(numbersResult);
+
+        // ============================================
+        // Task 5.4.
+        // ============================================
+
+        const userInputPrime = prompt("Введіть ціле число для перевірки, чи воно просте:");
+        
+        const number = parseInt(userInputPrime);
+        
+        let isPrime = true;
+        
+        if (number <= 1) {
+            isPrime = false;
+        } 
+       
+        else {
+            for (let i = 2; i * i <= number; i++) {
+                if (number % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        
+        if (isPrime) {
+            console.log(number + " - просте число");
+        } else {
+            console.log(number + " - не є простим числом");
+        }
+
     </script>
 </body>
 </html>

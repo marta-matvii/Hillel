@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+//=============================================
+// HOMEWORK 6.1. 
+//=============================================
+        const inputString = prompt("Введіть рядок:");
+
+        const charsToRemove = [];
+        let userInput;
+
+        while (true) {
+            userInput = prompt("Введіть символ для видалення (або натисніть Cancel для завершення):");
+            
+            if (userInput === null || userInput === "") {
+                break;
+            }
+            
+            charsToRemove.push(userInput[0]);
+        }
+
+        function removeChars(str, chars) {
+            let result = str;
+            
+            for (let i = 0; i < chars.length; i++) {
+                const regex = new RegExp(chars[i], 'g');
+                
+                result = result.replace(regex, '');
+            }
+            
+            return result;
+        }
+
+        const result = removeChars(inputString, charsToRemove);
+        alert(`Результат: "${result}"`);
+
+//=============================================
+// HOMEWORK 6.2. 
+//=============================================
+const mixedArray = [5, "hello", 10, true, null, 20, undefined, 15, "world", 25];
+
+function calculateNumericAverage(arr) {
+  let sum = 0;
+  let count = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+
+    if (typeof arr[i] === 'number') {
+      sum += arr[i];  
+      count++;       
+    }
+  }
+  
+  return sum / count;
+}
+
+const average = calculateNumericAverage(mixedArray);
+console.log("Середнє арифметичне числових елементів:", average);
+
+//=============================================
+// HOMEWORK 6.3. 
+//=============================================
+function removeElement(array, item) {
+  const result = [];
+  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== item) {
+      result.push(array[i]);
+    }
+  }
+  
+  return result;
+}
+
+const array = [1, 3, 4, 6, 2, 5, 7];
+const newArray = removeElement(array, 4);
+console.log(newArray);
+
+    </script>
+</body>
+</html>

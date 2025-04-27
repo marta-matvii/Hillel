@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 7.1, 7.2, 7.3 </title>
+</head>
+<body>
+    <script>
+//=============================================
+// HOMEWORK 7.1. 
+//=============================================
+function createSum() {
+  let total = 0;
+  
+  return function(num) {
+    total += num;
+    return total;
+  };
+}
+
+const sum = createSum();
+
+console.log(sum(4));
+console.log(sum(6));
+console.log(sum(10));
+console.log(sum(7)); 
+
+//=============================================
+// HOMEWORK 7.2. 
+//=============================================
+function multiply(a) {
+  return function(b) {
+    return a * b;
+  };
+}
+
+//=============================================
+// HOMEWORK 7.3. 
+//=============================================
+function getUserInput() {
+  let userInput;
+  
+  for (let i = 0; i < 10; i++) {
+    userInput = prompt("Введіть число більше 100:");
+    
+    if (userInput === null) {
+      console.log("Користувач скасував введення:", userInput);
+      return;
+    }
+    
+    const number = Number(userInput);
+
+    if (number > 100) {
+      console.log("Користувач ввів число більше 100:", number);
+      return;
+    }
+    
+    if (i === 9) {
+      console.log("Досягнуто максимальну кількість спроб. Останнє введення:", number);
+    }
+  }
+}
+
+    </script>
+</body>
+</html>

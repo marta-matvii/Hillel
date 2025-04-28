@@ -7,33 +7,26 @@
 </head>
 <body>
     <script>
-    function Calculator(num1, num2) {
-    this.number1 = num1;
-    this.number2 = num2;
-    
-    this.getPlus = function() {
-        return this.number1 + this.number2;
-    };
-    
-    this.getMinus = function() {
-        return this.number1 - this.number2;
-    };
-    }
+let ladder = {
+  step: 0,
+  
+  up: function() {
+    this.step++;
+    return this; 
+  },
+  
+  down: function() {
+    this.step--;
+    return this; 
+  },
+  
+  showStep: function() {
+    console.log(this.step);
+    return this; 
+  }
+};
 
-    const calculator1 = new Calculator(10, 5);
-    const calculator2 = new Calculator(20, 7);
-
-    console.log("Калькулятор 1:");
-    console.log("Число 1:", calculator1.number1); // 10
-    console.log("Число 2:", calculator1.number2); // 5
-    console.log("Сума:", calculator1.getPlus()); // 15
-    console.log("Різниця:", calculator1.getMinus()); // 5
-
-    console.log("Калькулятор 2:");
-    console.log("Число 1:", calculator2.number1); // 20
-    console.log("Число 2:", calculator2.number2); // 7
-    console.log("Сума:", calculator2.getPlus()); // 27
-    console.log("Різниця:", calculator2.getMinus()); // 13
+ladder.up().up().down().showStep();
     </script>
 </body>
 </html>

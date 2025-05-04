@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9.1. — Get the salaries sum </title>
+</head>
+<body>
+    <script>
+        function calculateTotalSalary(company) {
+            let totalSalary = 0;
+
+            function processItem(item) {
+                if (Array.isArray(item)) {
+                    for (let employee of item) {
+                        if (employee && typeof employee === 'object' && 'salary' in employee) {
+                            totalSalary += employee.salary;
+                        } else {
+                            processItem(employee);
+                        }
+                    }
+                }
+
+                else if (item && typeof item === 'object') {
+                    
+                    for (let key in item) {
+                        processItem(item[key]);
+                    }
+                }
+            }
+
+            processItem(company);
+
+            return totalSalary;
+        }
+
+        const company = {
+            sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+            development: {
+                web: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+                internals: [{name: 'Jack', salary: 1300}]
+            }
+        };
+
+        const totalSalary = calculateTotalSalary(company);
+        console.log("Salaries sum:", totalSalary);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Таймер відліку</h1>
+        
+        <div class="timer" id="timerDisplay">03:00</div>
+        
+        <div class="buttons">
+            <button id="startBtn">Старт</button>
+            <button id="pauseBtn" disabled>Пауза</button>
+            <button id="resetBtn">Скинути</button>
+        </div>
+        
+        <div class="settings">
+            <label>Хвилини: <input type="number" id="minutesInput" min="1" max="60" value="3"></label>
+            <button id="setTimeBtn">Встановити</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</html>

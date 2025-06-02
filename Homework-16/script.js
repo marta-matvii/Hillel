@@ -5,7 +5,6 @@ let isTimerRunning = false;
 
 const timeDisplay = document.getElementById('timerDisplay');
 const startBtn = document.getElementById('startBtn');
-const pauseBtn = document.getElementById('pauseBtn');
 const resetBtn = document.getElementById('resetBtn');
 const minutesInput = document.getElementById('minutesInput');
 const setTimeBtn = document.getElementById('setTimeBtn');
@@ -28,7 +27,6 @@ function startTimer() {
     
     isTimerRunning = true;
     startBtn.disabled = true;
-    pauseBtn.disabled = false;
     
     timerInterval = setInterval(() => {
         currentTimeSeconds--;
@@ -38,16 +36,6 @@ function startTimer() {
             finishTimer();
         }
     }, 1000);
-}
-
-function pauseTimer() {
-    if (!isTimerRunning) return;
-    
-    clearInterval(timerInterval);
-    timerInterval = null;
-    isTimerRunning = false;
-    startBtn.disabled = false;
-    pauseBtn.disabled = true;
 }
 
 function resetTimer() {
@@ -60,7 +48,6 @@ function resetTimer() {
     currentTimeSeconds = initialTimeSeconds;
     updateDisplay();
     startBtn.disabled = false;
-    pauseBtn.disabled = true;
 }
 
 function finishTimer() {
@@ -70,7 +57,6 @@ function finishTimer() {
     currentTimeSeconds = 0;
     updateDisplay();
     startBtn.disabled = true;
-    pauseBtn.disabled = true;
     alert("Time's up!");
 }
 
@@ -90,6 +76,5 @@ function setNewTime() {
 }
 
 startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
 resetBtn.addEventListener('click', resetTimer);
 setTimeBtn.addEventListener('click', setNewTime);

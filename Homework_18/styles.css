@@ -1,0 +1,22 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.task-item {
+    cursor: pointer;
+}
+
+.task-text {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.card {
+    border: 1px solid #ddd;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    color: #333;
+}

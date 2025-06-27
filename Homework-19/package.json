@@ -1,0 +1,20 @@
+{
+  "name": "homework-19",
+  "version": "1.0.0", 
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./src --out-dir ./dist --presets=@babel/preset-env",
+    "dev": "babel ./src --watch --out-dir ./dist --presets=@babel/preset-env"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.7", 
+    "@babel/preset-env": "^7.27.2"
+  }
+}

@@ -25,7 +25,7 @@ async function loadTasks() {
 function createTaskElement(task) {
     const li = document.createElement('li');
     li.className = 'task-item';
-    li.dataset.id = task.id;
+    li.dataset.id = task._id;
     
     const span = document.createElement('span');
     span.textContent = task.text;

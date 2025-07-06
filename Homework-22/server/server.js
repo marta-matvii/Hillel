@@ -1,58 +1,79 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-let todos = [
-    { id: 1, text: 'Learn Express', completed: false },
-    { id: 2, text: 'Create API', completed: false }
-];
+mongoose.connect('mongodb://localhost:27017/todoapp');
+
+const todoSchema = new mongoose.Schema({
+    text: String,
+    completed: { type: Boolean, default: false }
+});
+
+const Todo = mongoose.model('Todo', todoSchema);
 
 app.get('/', (req, res) => {
     res.json({ message: 'TODO API is working!' });
 });
 
-app.get('/api/todos', (req, res) => {
-    res.json(todos);
-});
-
-app.post('/api/todos', (req, res) => {
-    const newTodo = {
-        id: Date.now(),
-        text: req.body.text,
-        completed: false
-    };
-    todos.push(newTodo);
-    res.json(newTodo);
-});
-
-app.put('/api/todos/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const todo = todos.find(t => t.id === id);
-    
-    if (!todo) {
-        return res.status(404).json({ error: 'Task not found' });
+app.get('/api/todos', async (req, res) => {
+    try {
+        const todos = await Todo.find();
+        res.json(todos);
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
     }
-    
-    todo.text = req.body.text || todo.text;
-    todo.completed = req.body.completed ?? todo.completed;
-    
-    res.json(todo);
 });
 
-app.delete('/api/todos/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const index = todos.findIndex(t => t.id === id);
-    
-    if (index === -1) {
-        return res.status(404).json({ error: 'Task not found' });
+app.post('/api/todos', async (req, res) => {
+    try {
+        const newTodo = new Todo({
+            text: req.body.text
+        });
+        const savedTodo = await newTodo.save();
+        res.json(savedTodo);
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
     }
-    
-    todos.splice(index, 1);
-    res.json({ message: 'Task deleted' });
+});
+
+app.put('/api/todos/:id', async (req, res) => {
+    try {
+        const todo = await Todo.findByIdAndUpdate(
+            req.params.id,
+            { 
+                text: req.body.text,
+                completed: req.body.completed
+            },
+            { new: true }
+        );
+        
+        if (!todo) {
+            return res.status(404).json({ error: 'Task not found' });
+        }
+        
+        res.json(todo);
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+app.delete('/api/todos/:id', async (req, res) => {
+    try {
+        const todo = await Todo.findByIdAndDelete(req.params.id);
+        
+        if (!todo) {
+            return res.status(404).json({ error: 'Task not found' });
+        }
+        
+        res.json({ message: 'Task deleted' });
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
+    }
 });
 
 const PORT = 3000;

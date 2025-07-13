@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голосування за смайлики</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Голосування за найкращий смайлик</h1>
+        
+        <div class="emoji-container" id="emojiContainer">
+        </div>
+
+        <div class="button-container">
+            <button id="showResultsBtn" class="btn btn-primary">Показати результат</button>
+        </div>
+
+        <div id="resultsContainer" class="results-container hidden">
+            <h2>Переможець:</h2>
+            <div class="winner-section">
+                <div id="winnerEmoji" class="winner-emoji"></div>
+                <div id="winnerVotes" class="winner-votes"></div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="clearResultsBtn" class="btn btn-secondary">Очистити результати</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

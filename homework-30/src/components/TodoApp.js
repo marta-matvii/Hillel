@@ -6,19 +6,21 @@ import {
   TextField,
   Button,
   Box,
-  Paper
+  Paper,
+  CircularProgress,
+  Alert
 } from '@mui/material';
 import {
   loadTodos,
   addTodo,
   clearAllTodos
-} from '../actions/todoActions';
+} from '../redux/actions/todoActions';
 import TodoList from './TodoList';
 
 function TodoApp() {
   const [inputText, setInputText] = useState('');
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.todos.todos);
+  const { todos, loading, error } = useSelector(state => state.todos);
 
   useEffect(() => {
     dispatch(loadTodos());
@@ -50,6 +52,12 @@ function TodoApp() {
           Todo App with Redux Saga
         </Typography>
         
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            Помилка: {error}
+          </Alert>
+        )}
+        
         <Box sx={{ mb: 3 }}>
           <TextField
             fullWidth
@@ -57,15 +65,17 @@ function TodoApp() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyPress={handleKeyPress}
+            disabled={loading}
             sx={{ mb: 2 }}
           />
           <Button
             variant="contained"
             onClick={handleAddTodo}
-            disabled={!inputText.trim()}
+            disabled={!inputText.trim() || loading}
             fullWidth
+            startIcon={loading ? <CircularProgress size={20} /> : null}
           >
-            Додати
+            {loading ? 'Додаю...' : 'Додати'}
           </Button>
         </Box>
 
@@ -77,6 +87,7 @@ function TodoApp() {
               variant="outlined"
               color="warning"
               onClick={handleClearAll}
+              disabled={loading}
               fullWidth
             >
               Очистити всі завдання

@@ -15,7 +15,7 @@ import {
   startEditTodo,
   saveEditTodo,
   cancelEditTodo
-} from '../actions/todoActions';
+} from '../redux/actions/todoActions';
 
 function TodoItem({ todo }) {
   const [editText, setEditText] = useState(todo.text);

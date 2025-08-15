@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { loginUser, clearError } from '../../store/slices/authSlice';
+import { validateLoginForm } from '../../utils/validation';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,17 +36,6 @@ const LoginPage = () => {
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  const validate = (values) => {
-    const errors = {};
-    if (!values.username || values.username.trim() === '') {
-      errors.username = 'Username is required';
-    }
-    if (!values.password || values.password.trim() === '') {
-      errors.password = 'Password is required';
-    }
-    return errors;
   };
 
   const onSubmit = (values) => {
@@ -91,7 +81,7 @@ const LoginPage = () => {
 
         <Form
           onSubmit={onSubmit}
-          validate={validate}
+          validate={validateLoginForm}
           render={({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <Box sx={{ mb: 3 }}>

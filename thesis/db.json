@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "name": "iPhone 15 Proa",
+      "category": "Electronics",
+      "price": 999,
+      "quantity": 15,
+      "photo": "https://via.placeholder.com/300x300?text=iPhone+15+Pro",
+      "description": "Latest iPhone with advanced features and A17 Pro chip",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S24",
+      "category": "Electronics",
+      "price": 899,
+      "quantity": 23,
+      "description": "Flagship Android smartphone with Galaxy AI",
+      "photo": "https://via.placeholder.com/300x300?text=Galaxy+S24"
+    },
+    {
+      "id": "3",
+      "name": "MacBook Air M3",
+      "category": "Computers",
+      "price": 1299,
+      "quantity": 8,
+      "description": "Lightweight laptop with M3 chip and 18-hour battery life",
+      "photo": "https://via.placeholder.com/300x300?text=MacBook+Air"
+    },
+    {
+      "id": "4",
+      "name": "Sony WH-1000XM5",
+      "category": "Audio",
+      "price": 399,
+      "quantity": 42,
+      "description": "Premium noise-canceling wireless headphones",
+      "photo": "https://via.placeholder.com/300x300?text=Sony+Headphones"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { store } from './store/index';
 import { checkAuthStatus } from './store/slices/authSlice';
 import LoginPage from './pages/Login';
+import ProductsPage from './pages/Products';
 
 const theme = createTheme({
   palette: {
@@ -45,25 +46,7 @@ const AppContent = () => {
           path="/products" 
           element={
             <ProtectedRoute>
-              <div style={{ padding: '20px' }}>
-                <h1>Products Page (Coming Soon)</h1>
-                <button 
-                  onClick={() => {
-                    localStorage.removeItem('authToken');
-                    window.location.reload();
-                  }}
-                  style={{
-                    backgroundColor: '#52c263',
-                    color: 'white',
-                    padding: '10px 20px',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Logout (Test)
-                </button>
-              </div>
+              <ProductsPage />
             </ProtectedRoute>
           } 
         />

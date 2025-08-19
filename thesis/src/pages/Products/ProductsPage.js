@@ -9,8 +9,8 @@ import {
   Typography,
 } from '@mui/material';
 import { Add, AccountCircle } from '@mui/icons-material';
-import { fetchProducts } from '../../store/slices/productsSlice';
-import ProductTable from './ProductTable';
+import { fetchProducts, deleteProduct } from '../../store/slices/productsSlice';
+import { Table } from '../../components'; 
 import ProductModal from './ProductModal';
 
 const ProductsPage = () => {
@@ -38,6 +38,10 @@ const ProductsPage = () => {
     setModalOpen(true);
   };
 
+  const handleDeleteProduct = (id) => {
+    dispatch(deleteProduct(id));
+  };
+
   const handleCloseModal = () => {
     setModalOpen(false);
     setEditProduct(null);
@@ -46,6 +50,8 @@ const ProductsPage = () => {
   const handlePreview = () => {
     navigate('/preview');
   };
+
+  const tableHeaders = ["ID", "Category", "Name", "Quantity", "Price", "Action"];
 
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: '#52c263' }}>
@@ -129,9 +135,11 @@ const ProductsPage = () => {
             <CircularProgress size={60} sx={{ color: 'white' }} />
           </Box>
         ) : (
-          <ProductTable 
-            products={products}
+          <Table 
+            data={products}
+            headers={tableHeaders}
             onEdit={handleEditProduct}
+            onDelete={handleDeleteProduct}
             onPreview={handlePreview}
           />
         )}

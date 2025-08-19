@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Form, Field } from 'react-final-form';
 import {
@@ -13,14 +12,13 @@ import {
   CircularProgress,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { loginUser, clearError } from '../../store/slices/authSlice';
 import { validateLoginForm } from '../../utils/validation';
+import { useAuth } from '../../hooks/useAuth';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, error, isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, isLoading, error, login, clearError } = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -30,17 +28,17 @@ const LoginPage = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(clearError());
+      clearError();
     };
-  }, [dispatch]);
+  }, [clearError]);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     const { username, password } = values;
-    dispatch(loginUser({ username, password }));
+    await login(username, password);
   };
 
   return (

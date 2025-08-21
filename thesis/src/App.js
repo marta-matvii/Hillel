@@ -6,7 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { store } from './store/index';
 import LoginPage from './pages/Login';
 import ProductsPage from './pages/Products';
-import { ProtectedRoute } from './components'; // ← змінено
+import PreviewPage from './pages/Preview';
+import { ProtectedRoute } from './components';
 
 const theme = createTheme({
   palette: {
@@ -38,7 +39,7 @@ const AppContent = () => {
         path="/preview" 
         element={
           <ProtectedRoute>
-            <div>Preview Page (Coming Soon)</div>
+            <PreviewPage />
           </ProtectedRoute>
         } 
       />

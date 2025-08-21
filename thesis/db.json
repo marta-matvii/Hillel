@@ -3,9 +3,9 @@
     {
       "name": "iPhone 15 Pro",
       "category": "Electronics",
-      "price": 999,
+      "price": 42999,
       "quantity": 15,
-      "photo": "https://via.placeholder.com/300x300?text=iPhone+15+Pro",
+      "photo": "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_natural_titanium_pdp_image_position-1__ww-en_1.jpg/f_auto",
       "description": "Latest iPhone with advanced features and A17 Pro chip",
       "id": "1"
     },
@@ -13,28 +13,28 @@
       "id": "2",
       "name": "Samsung Galaxy S24",
       "category": "Electronics",
-      "price": 899,
+      "price": 40899,
       "quantity": 23,
       "description": "Flagship Android smartphone with Galaxy AI",
-      "photo": "https://via.placeholder.com/300x300?text=Galaxy+S24"
+      "photo": "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/s/m/sm-s921_galaxys24_front_marblegray_231110_1__1.jpg/f_auto"
     },
     {
       "id": "3",
       "name": "MacBook Air M3",
       "category": "Computers",
-      "price": 1299,
+      "price": 48299,
       "quantity": 8,
       "description": "Lightweight laptop with M3 chip and 18-hour battery life",
-      "photo": "https://via.placeholder.com/300x300?text=MacBook+Air"
+      "photo": "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/m/a/macbook_air_13-in_m3_chip_midnight_pure_front_screen__usen-ptif_3.jpg/f_auto"
     },
     {
       "id": "4",
       "name": "Sony WH-1000XM5",
       "category": "Audio",
-      "price": 399,
+      "price": 14399,
       "quantity": 42,
       "description": "Premium noise-canceling wireless headphones",
-      "photo": "https://via.placeholder.com/300x300?text=Sony+Headphones"
+      "photo": "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/0/7/07c9dca1a0e976a4760c609a8ef7d3ac_1_.jpg/f_auto"
     }
   ]
 }

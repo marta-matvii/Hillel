@@ -10,8 +10,7 @@ import {
 } from '@mui/material';
 import { Add, AccountCircle } from '@mui/icons-material';
 import { fetchProducts, deleteProduct } from '../../store/slices/productsSlice';
-import { Table } from '../../components'; 
-import ProductModal from './ProductModal';
+import { Table, ProductModal } from '../../components'; 
 
 const ProductsPage = () => {
   const dispatch = useDispatch();

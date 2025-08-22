@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
-import { addProduct, updateProduct } from '../../store/slices/productsSlice';
-import { Modal, Input } from '../../components'; 
+import { addProduct, updateProduct } from '../store/slices/productsSlice'; 
+import Modal from './Modal'; 
+import Input from './Input'; 
 import {
   validateProductName,
   validateCategory,
@@ -10,7 +11,7 @@ import {
   validateQuantity,
   validatePhoto,
   validateDescription,
-} from '../../utils/validation';
+} from '../utils/validation'; 
 
 const ProductModal = ({ open, onClose, product, mode }) => {
   const dispatch = useDispatch();

@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { fetchProducts } from '../../store/slices/productsSlice';
-import ProductCard from './ProductCard';
+import { ProductCard } from '../../components'; 
 
 const PreviewPage = () => {
   const dispatch = useDispatch();
